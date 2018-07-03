@@ -1,0 +1,38 @@
+<style>
+	.outer{
+		width: 550px;
+		text-align: center;
+		margin: auto;
+	}
+</style>
+
+  <div style="position:relative; text-align:center" class = "outer">
+ 	 <div id="facebook1" style="position:absolute; top:100px">
+	    <img src='breakups_facebook.png'>
+	  </div>
+	  <div id="facebook2"  style="position:absolute; top:100px">
+	    <img src='breakups_facebook_unannotated.png'>
+	  </div>
+	</div>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+	<script>
+	
+	$(document).ready(function()
+	{
+		
+		$("#facebook1").click(function(){
+			$("#facebook1").hide()
+			$("#facebook2").show()
+		})
+		$("#facebook2").click(function(){
+			$("#facebook2").hide()
+			$("#facebook1").show()
+		})
+		
+		
+	});
+	
+</script>
