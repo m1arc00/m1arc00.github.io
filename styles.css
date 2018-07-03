@@ -1,0 +1,23 @@
+	#slide { 
+		height:768px; 
+		width:1024px;
+		background-color:white;
+		font-weight:bold;
+		color:#000000;
+		position:relative;
+		font-size:100px;
+		font-family:Arial;
+		margin:0 auto;
+		margin-bottom:20px;
+	}
+	#slidetext { 
+		position:absolute; 
+		margin-top:-100px;
+		top:50%; 
+		width:1024px;
+		text-align:center;
+	}
+
+
+
+
