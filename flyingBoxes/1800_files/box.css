@@ -1,0 +1,86 @@
+/*
+$Id: box.css,v 1.5 2008/07/03 14:47:35 nickc Exp $
+(c) 2008 The New York Times Company
+*/
+
+/* lower box rules */
+
+#wsodMarkets .box {
+	overflow: hidden;
+	_float: left;
+	_width: 320px;
+ 	margin-top: -1px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	border-top: 0;
+	clear: both;
+}
+
+#wsodMarkets .subColumnA {
+	width: 145px;
+	margin-right: 0 !important;
+}
+
+#wsodMarkets .subColumnB {
+	float: right !important;
+	margin-right: 0 !important;
+  width: 163px !important;
+}
+
+#wsodMarkets .subColumnB .adCreative {
+  width:120px;
+  margin:0 auto;
+}
+
+/* quotes form (using marketwatch markup) */
+
+#wsodMarkets .searchForm #searchQuery, /* legacy */
+#wsodMarkets .searchForm #qsearchQuery {
+  vertical-align: middle;
+  width: 114px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #666;
+  border: 1px solid #B2B2B2;
+  padding: 2px 1px 1px;
+}
+
+#wsodMarkets #wsodFormHome #searchQuery, /* legacy */
+#wsodMarkets #wsodFormHome #qsearchQuery {
+	width: 134px;
+}
+
+#wsodMarkets .searchForm #searchSubmit {
+	vertical-align: middle;
+	width: 22px;
+}
+
+#wsodMarkets .searchForm label {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 83.3%; /*10px*/
+	padding-bottom: 2px;
+	text-transform: uppercase;
+	display: block;
+	float: left;
+}
+
+#wsodMarkets #wsodFormDealbook label {
+ font-size: 1.1em;
+}
+
+#wsodMarkets .searchForm #myPortfolios {
+	margin: 0;
+	padding: 0;
+	display: inline;
+	float: right;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 83.3% !important; /*10px*/
+	white-space: nowrap;
+}
+
+#wsodMarkets .searchForm #myPortfolios a {
+	font-size: 10px !important;
+	padding: 0 !important;
+}
+
+/* end quotes form */

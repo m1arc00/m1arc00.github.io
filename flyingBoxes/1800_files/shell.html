@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+    
+	    <!-- NOTE: Make *no* changes to the /feedroom copy of this file.
+             Instead, make the changes to:
+             /bcvideo/1.0/iframe/bcArtIframe.html
+             Then, copy them over to /feedroom/nytc3/shell.html
+        -->
+        <style type="text/css">
+            @import "/css/app/bcvideo/bc_article.css";                    
+        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title>Article Player</title>
+        <script type="text/javascript" src="shell_data/playerConfigs.js"></script>
+        <script type="text/javascript" src="shell_data/BrowserDetect.js"></script>
+        <script type="text/javascript" src="shell_data/bc_article.js"></script>
+        <script language="JavaScript" type="text/javascript" src="shell_data/BrightcoveExperiences.js"></script>
+        <script language="JavaScript" type="text/javascript" src="shell_data/APIModules_all.js"></script>
+        <script type="text/javascript" src="1800_files/prototype.js"></script>
+    <script type="text/javascript" src="shell_data/library.html"></script></head><body linkifymax="0" linkifycurrent="0" linkifying="true">
+        <div class="bc_playerContainer">
+            <div class="bc_linkContainer">
+                <div class="bc_videoLink"><a href="http://video.nytimes.com/" target="_blank">VIDEO</a><img src="shell_data/bc_videoArrow.gif" alt="arrow"></div>
+                <div class="bc_MoreMultimediaLinks">
+                    <span><a href="http://video.nytimes.com/" target="_blank">More Video</a></span>
+                    <span> | </span>
+                    <span><a href="http://nytimes.com/pages/multimedia/" target="_blank">Multimedia</a><img src="shell_data/bc_multiArrow.gif" alt="arrow"></span>
+                </div>
+            </div>
+        <div class="bc_videoContainer">
+
+		  <div id="bc_videoPlayerContainer"></div>
+			<script language="javascript" type="text/javascript">
+
+			var queryString = window.location.search;
+			var startupParams = queryString.toQueryParams();
+			var videoId, playlistId, bcAssetParamTag;
+
+			if( typeof startupParams['skin']!='undefined' && startupParams.skin=='oneclip'
+			    && typeof startupParams['fr_story']!='undefined' )
+			{
+				startupParams['feedroomTrans'] = 'video';
+				startupParams['videoId'] = startupParams['fr_story'];
+			}
+
+			var sharedPlayerParams = '';
+			var GenerateVideoObjTag = function(assetType,assetId,addlParams) {
+				var bcAssetParamTag = '';
+				if( typeof assetType != 'undefined' ) {
+					var assetTypeLc = assetType.toLowerCase();
+					if( assetTypeLc == 'video' ) {
+						window.videoId = assetId;
+						bcAssetParamTag += '<param name="@videoPlayer" value="ref:'
+				                         + assetId
+			                             + '" />\n'
+			                             ;
+					} else if( assetTypeLc == 'video' ) {
+						window.playlistId = assetId;
+						bcAssetParamTag += '<param name="@playlistTabs" value="ref:'
+						                 + assetId
+						                 + '" />\n'
+						                 ;
+					}
+				}
+
+				var playerObjectTag = '\
+<object id="bc_articlePlayer" class="BrightcoveExperience">\n\
+    <param name="bgcolor" value="#FFFFFF" />\n\
+    <param name="width" value="318" />\n\
+    <param name="height" value="228" />\n\
+    <param name="publisherID" value="' +activeDefaults.common.PubId+ '"/>\n\
+    <param name="isVid" value="true" />\n\
+    <param name="wmode" value="transparent" />\n\
+';
+				playerObjectTag += sharedPlayerParams;
+				playerObjectTag += bcAssetParamTag;
+				playerObjectTag += '</object>\n';
+				if( typeof addlParams != 'undefined' 
+					&& typeof addlParams.targetDomId != 'undefined' )
+				{
+					var targetEl = $( addlParams.targetDomId );
+					if( targetEl && typeof targetEl.innerHTML != 'undefined' ) {
+						targetEl.innerHTML = playerObjectTag;
+					}
+				} else {
+					document.write( playerObjectTag );
+				}
+			};
+			var activeDefaults = window.NYTD.Video.SinglePlayers.active;
+
+			if( typeof activeDefaults.article.playerId != 'undefined' ) {
+				sharedPlayerParams += '<param name="playerID" value="' + activeDefaults.article.playerId+ '" />\n';
+			} else if( typeof(startupParams['playerId']) != 'undefined' ) {
+				sharedPlayerParams += '<param name="playerID" value="' + startupParams['playerId'] + '" />\n';
+			}
+
+			var frTransInfo = activeDefaults.common.TransInfo;
+			var frTransScript = frTransInfo.videoHostBase
+			                  + frTransInfo.fr2bcTransPath
+			                  ;
+			                
+			if( typeof startupParams['feedroomTrans'] != 'undefined' ) {
+				if( startupParams['feedroomTrans'] == 'video' ) {
+					frTransScript += 'video/'
+					               + startupParams['videoId']
+                                   ;
+				} else if( startupParams['feedroomTrans'] == 'playlist' ) {
+					frTransScript += 'playlist/'
+					               + startupParams['videoId']
+                                   ;
+				}
+				frTransScript += frTransInfo.fr2bcFilename
+				               + frTransInfo.fr2bcCallback
+				               + 'GenerateVideoObjTag'
+				               + frTransInfo.fr2bcAddlParams
+				               + encodeURIComponent( '{"targetDomId":"bc_videoPlayerContainer"}' )
+				               ;
+				document.write( "\<\script src=\""+ frTransScript +"\" type=\"text/javascript\">\<\/script>\n" );
+			} else {
+				if( typeof startupParams['videoId'] != 'undefined' ) {
+					GenerateVideoObjTag( 'video', startupParams['videoId'] );
+				} else if( typeof startupParams['playlistId'] != 'undefined' ) {
+					GenerateVideoObjTag( 'playlist', startupParams['playlistId'] );
+				}
+			}
+
+			</script>
+
+            <div id="bc_articleInfo" class="bc_articleInfo">
+                <div id="bc_infoSection"></div>
+                <div id="bc_infoTitle"></div>
+                <div id="bc_infoDesc"></div>           
+            </div>
+            <div id="bc_screenCover">
+                <div class="bc_screenHeaderText">Video</div>
+                <img src="shell_data/bc_nytimesLogo.gif" alt="The New York Times" class="bc_screenNYLogo">
+                <div class="bc_screenLinkText">More video from The New York Times is available at <a href="http://nytimes.com/video" target="_blank">http://nytimes.com/video</a></div>
+            </div>
+        </div>
+        </div>
+         <script language="javascript" type="text/javascript">
+            var gtrackevents=false;
+            var gdcsid="dcs1j460r100008uw7es2eceo_6c4w";
+            var gfpcdom=".nytimes.com";
+            var gdomain="wt.o.nytimes.com";
+        </script>
+        
+        <script src="1800_files/wtinit.js" type="text/javascript"></script>
+        <script src="shell_data/wtbase.js" type="text/javascript"></script>
+    </body></html>
