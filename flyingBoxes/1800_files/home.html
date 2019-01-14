@@ -1,0 +1,11 @@
+
+	var wsodModule = [];
+
+	wsodModule.push('<div id="wsod-home"><span class="tradeTimea">At 12:40 PM ET</span><h4><a href="http://markets.on.nytimes.com/research/markets/overview/overview.asp">Markets &#187;</a></h4>');
+wsodModule.push('<div class="marketContainer"><div class="marketLabel"><a href="http://markets.on.nytimes.com/research/markets/usmarkets/snapshot.asp?symbol=US%3BSPX" class="">S.&amp;P. 500</a></div><div><span class="negLast">863.93</span></div><div><span class="negChange">&#150;6.81</span></div><div><span class="negChangePct">&#150;0.78%</span></div></div><div class="marketContainer mMarket"><div class="marketLabel"><a href="http://markets.on.nytimes.com/research/markets/usmarkets/snapshot.asp?symbol=US%26DJI" class="">Dow</a></div><div><span class="negLast">8,526.30</span></div><div><span class="negChange">&#150;65.39</span></div><div><span class="negChangePct">&#150;0.76%</span></div></div><div class="marketContainer"><div class="marketLabel"><a href="http://markets.on.nytimes.com/research/markets/usmarkets/snapshot.asp?symbol=US%3BCOMP" class="">Nasdaq</a></div><div><span class="negLast">1,481.52</span></div><div><span class="negChange">&#150;10.86</span></div><div><span class="negChangePct">&#150;0.73%</span></div></div>');
+	wsodModule.push('<div class="clearElm"></div></div>');
+	
+	var destModule = document.getElementById("wsodMarketsChart");
+	if (destModule) {
+		destModule.innerHTML = wsodModule.join("");
+	}

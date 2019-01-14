@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" language="JavaScript">
+	var video_properties = null;
+	if (document.location.search.length > 0) {
+		video_properties = new Object();
+		var qry_string = unescape(document.location.search).substring(1);
+		qry_values = qry_string.split("&");
+		//populate video_properties with all name/value pairs found in query string
+		for (var i=0; i < qry_values.length; i++){	
+			args = qry_values[i].split("=");
+			video_properties[args[0]] = args[1];
+		}
+		if (video_properties["video_playing"] && (video_properties["video_playing"] == "true")) {
+			document.cookie = "playing=true; path=/; domain=nytimes.com";
+		} else {
+			document.cookie = "playing=false; path=/; domain=nytimes.com; expires=Thu, 01-Jan-70 00:00:01 GMT";
+		}
+		//reset values
+		qry_values = null;
+	}
+</script>	
+
+
+</head><body linkifymax="0" linkifycurrent="0" linkifying="true" bgcolor="#ffffff">
+
+</body></html>

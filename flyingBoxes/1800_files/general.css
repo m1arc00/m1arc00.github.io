@@ -1,0 +1,762 @@
+/*
+$Id: general.css,v 1.38 2008/09/03 19:39:07 nickc Exp $
+/css/standalone/modules/screen/wallstreet/ondemand/general.css
+(c)2006 - 2008 The New York Times Company
+*/
+
+/* Common Styles */
+#wsodMarketsChart {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+#wsodMarketsChart a {
+  color: #004276;
+}
+
+#wsodMarketsChart div#wsodtabs-container {
+  border-left: 1px solid #CCCCCC;
+  display: block;
+  position: relative;
+  _top: 1px;
+  z-index: 5500;
+  float: left;
+  width: 333px;
+}
+
+#wsodMarketsChart div#wsodtabs-container ul.wsodtabs {
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  z-index: 5500;
+  /*\*/ 
+  vertical-align:middle;
+  /*\*/ 
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#wsodMarketsChart div#wsodtabs-container ul.wsodtabs li {
+  margin: 0;
+  display: block;
+  float: left;
+  background-color: #f0f4f5;
+  border: 1px solid #ccc;
+  border-width: 1px 1px 1px 0;
+  white-space: nowrap;
+  padding: 4px 6px 3px 6px;
+  z-index: 6000;
+  background-image: none;
+}
+
+#wsodMarketsChart div#wsodtabs-container ul.wsodtabs li.selected {
+  background-color: white;
+  border-bottom: none;
+  z-index: 9999;
+  padding: 4px 6px 4px 6px;
+}
+
+#wsodMarketsChart div#wsodtabs-container ul.wsodtabs li a {
+  color: #333;
+  text-decoration: none;
+}
+
+#wsodMarketsChart div#wsodtabs-container ul.wsodtabs li a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+#wsodMarketsChart .marketContainer,
+#wsodMarketsChart .mMarketContainer {
+  float: left;
+  padding: 0px 5px;
+  margin: 5px 0px;
+  font-size: 11px;
+  width: 100px;
+}
+
+#wsodMarketsChart .posLast,
+#wsodMarketsChart .negLast,
+#wsodMarketsChart .noLast,
+#wsodMarketsChart .closedLast {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#wsodMarketsChart .posLast,
+#wsodMarketsChart .posChange,
+#wsodMarketsChart .posChangePct {
+  color: #3c8a37;
+}
+
+#wsodMarketsChart .negLast,
+#wsodMarketsChart .negChange,
+#wsodMarketsChart .negChangePct {
+  color: #a81817;
+}
+
+#wsodMarketsChart .noLast,
+#wsodMarketsChart .noChange,
+#wsodMarketsChart .noChangePct {
+  color: #333;
+}
+
+#wsodMarketsChart .closedLast,
+#wsodMarketsChart .closedChange,
+#wsodMarketsChart .closedChangePct {
+  color: #808080;
+}
+
+#wsodMarketsChart .tradeTime,
+#wsodMarketsChart .tradeTimea {
+  font-size: 9px;
+  color: #808080;
+}
+
+#wsodMarketsChart .tradeTimea {
+  float: right;
+  padding-top: 5px;
+}
+
+#wsodMarketsChart .holiday,
+#wsodMarketsChart .usHoliday {
+  clear: both;
+  font-size: 9px;
+  font-family: arial;
+  color: #666;
+  line-height: 10px;
+  padding: 3px 0;
+}
+
+#wsodMarketsChart .usHoliday {
+  padding: 6px;
+}
+
+#wsodMarketsChart .holidayDivider {
+  border-top: solid 1px #E2E2E2;
+  padding-top: 2px;
+  margin-top: 2px;
+  color: #000;
+}
+
+#wsodMarketsChart .countryLabel {
+  font-size: 10px;
+  color: #808080;
+  text-transform: uppercase;
+}
+
+#wsodMarketsChart .darkTxt {
+  color: #333;
+}
+
+#wsodMarketsChart .clearElm {
+  clear: both;
+}
+
+div#wsod-container {
+  width: 335px;
+}
+
+div#wsod-container.narrow {
+  width: 311px;
+}
+
+div#wsod-container h4 {
+  margin: 0;
+  margin-bottom: 3px;
+  float: left;
+}
+
+div#tradeTime {
+  font-family: Arial,Helvetica,sans-serif;
+  float: right;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 9px;
+  color: #808080;
+  position: relative;
+  top: 4px;
+}
+
+.delayText {
+  padding-right: 10px;
+}
+
+/* Business/World Business */
+div#wsod-business {
+  padding-top: 6px;
+  border: solid 1px #ccc;
+  border-bottom: 0;
+  clear: both;
+  position: relative;
+  top: -1px;
+  _top: 0px;
+  font-size: 11px;
+  _width: 332px;
+}
+
+div#wsod-business .inner {
+  height: 120px;
+}
+
+div#wsod-business .mMarketContainer {
+  border-left: solid 1px #EDEDED;
+  border-right: solid 1px #EDEDED;
+}
+
+div#wsod-business .marketLabel a {
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#wsod-business .marketLabel a:hover {
+  text-decoration: underline;
+}
+
+div#wsod-business .posChangePct,
+div#wsod-business .negChangePct,
+div#wsod-business .noChangePct,
+div#wsod-business .closedChangePct {
+  float: right;
+}
+
+div#wsod-business .lastPrice {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Technology */
+div#wsod-technology {
+  width: 190px;
+  font-size: 11px;
+}
+
+div#wsod-technology .tradeTime {
+  padding-top: 5px;
+}
+
+div#wsod-technology h3 {
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+div#wsod-technology .tradeTime {
+  font-size: 9px;
+  color: #808080;
+  line-height: 9px;
+}
+
+div#wsod-technology .posLast,
+div#wsod-technology .negLast,
+div#wsod-technology .noLast,
+#div#wsod-technology .closedLast {
+  float: left;
+  width: 82px;
+}
+
+div#wsod-technology .posChange,
+div#wsod-technology .negChange,
+div#wsod-technology .noChange,
+div#wsod-technology .closedChange {
+  display: block;
+  width: 53px;
+  float: left;
+}
+
+div#wsod-technology .posChangePct,
+div#wsod-technology .negChangePct,
+div#wsod-technology .noChangePct,
+div#wsod-technology .closedChangePct {
+  display: block;
+  width: 53px;
+  float: right;
+  text-align: right;
+}
+
+div#wsod-technology .sym {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  line-height: 16px;
+}
+
+div#wsod-technology .border {
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+}
+
+div#wsod-technology .company {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Media & Advertising */
+div#wsod-media {
+  width: 335px;
+  font-size: 11px;
+}
+
+div#wsod-media .tradeTime {
+  float: right;
+  padding-top: 5px;
+  white-space: nowrap;
+}
+
+div#wsod-media h4 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0pt 0pt 7px;
+  padding: 0pt;
+  text-transform: uppercase;
+  color: #000;
+}
+
+div#wsod-media .quote_container {
+  border-bottom: solid 1px #ccc;
+  float: left;
+  width: 250px;
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+}
+
+div#wsod-media .quote {
+  float: right;
+  width: 144px;
+}
+
+div#wsod-media .company {
+  float: left;
+  width: 106px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div#wsod-media .marketContainer,
+div#module .mMarketContainer {
+  padding: 0px 2px;
+  width: 78px;
+}
+
+div#wsod-media .market_chart {
+  float: left;
+  padding-right: 5px;
+  width: 78px;
+}
+
+div#wsod-media .posLast,
+div#wsod-media .negLast,
+div#wsod-media .noLast,
+div#wsod-media .closedLast {
+  width: 46px;
+  float: left;
+  text-align: right;
+}
+
+div#wsod-media .posChangePct,
+div#wsod-media .negChangePct,
+div#wsod-media .noChangePct,
+div#wsod-media .closedChangePct {
+  width: 49px;
+  float: right;
+  text-align: right;
+  padding-top: 1px;
+}
+
+div#wsod-media .posChange,
+div#wsod-media .negChange,
+div#wsod-media .noChange,
+div#wsod-media .closedChange {
+  width: 40px;
+  float: right;
+  text-align: right;
+  padding-top: 1px;
+}
+
+div#wsod-media .sym {
+  padding-bottom: 15px;
+  clear: both;
+}
+
+/* Dealbook */
+div#wsod-dealbook {
+  position: relative;
+  top: -1px;
+  _top: 0px;
+  color: #333;
+  border: solid 1px #ccc;
+  border-bottom: none;
+  font-size: 11px;
+  clear: both;
+  padding-left: 1px;
+  padding-top: 6px;
+}
+
+h4#dealbookHeader {
+  font: bold 114.5% Arial, Helvetica, sans-serif;
+  margin: 0 0 7px;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+#wsodMarketsChart .tradeTimedealbook {
+  float: none;
+  position: absolute;
+  text-align: right;
+  margin-left: 208px;
+  width: 125px;
+  margin-top: 8px;
+}
+
+div#wsod-dealbook .marketContainer,
+div#wsod-dealbook .mMarketContainer,
+div#wsod-mytimes .marketContainer,
+div#wsod-mytimes .mMarketContainer {
+  padding: 0px 2px;
+  width: 78px;
+}
+
+div#wsod-dealbook .mMarketContainer {
+  border-right: solid 1px #EDEDED;
+}
+
+div#wsod-dealbook .tm_label {
+  height: 40px;
+  overflow: hidden;
+  line-height: 10px;
+  padding-bottom: 4px;
+}
+
+div#wsod-dealbook .marketLabel {
+  padding-bottom: 2px;
+  line-height: 15.5px;
+}
+
+div#wsod-dealbook .marketLabel.tm_label {
+  line-height: 14px;
+  padding-bottom: 3px;
+}
+
+div#wsod-dealbook .marketLabel a,
+div#wsod-mytimes .marketLabel a,
+div#wsod-home .posLast,
+div#wsod-home .negLast {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+div#wsod-dealbook .posChange,
+div#wsod-dealbook .negChange,
+div#wsod-dealbook .noChange,
+div#wsod-dealbook .closedChange {
+  font-size: 9px;
+  float: left;
+}
+
+div#wsod-dealbook .posChangePct,
+div#wsod-dealbook .negChangePct,
+div#wsod-dealbook .noChangePct,
+div#wsod-dealbook .closedChangePct {
+  font-size: 9px;
+  float: right;
+}
+
+div#wsod-dealbook .inner {
+  min-height: 120px;
+  _height: 120px;
+}
+
+div#wsod-dealbook .posLast {
+  display: block;
+}
+
+div#wsod-dealbook .negLast {
+  display: block;
+}
+
+div#wsod-dealbook #disclaimer {
+  clear: both;
+  font-size: 9px;
+  color: #808080;
+  border-top: solid 1px #ccc;
+  margin: 2px 5px;
+  padding: 2px;
+}
+
+div#wsod-dealbook div#TopMovers .posLast,
+div#wsod-dealbook div#TopMovers .negLast {
+  display: block;
+  text-align: left;
+  width: 70px;
+  padding-bottom: 5px;
+}
+
+div#wsod-dealbook div#TopMovers .posChange,
+div#wsod-dealbook div#TopMovers .negChange,
+div#wsod-dealbook div#TopMovers .noChange,
+div#wsod-dealbook div#TopMovers .closedChange {
+  font-size: 11px;
+  display: block;
+  clear: both;
+  position: relative;
+  top: 3px;
+  left: 30px;
+  float: left;
+}
+
+div#wsod-dealbook div#TopMovers .posChangePct,
+div#wsod-dealbook div#TopMovers .negChangePct,
+div#wsod-dealbook div#TopMovers .noChangePct,
+div#wsod-dealbook div#TopMovers .closedChangePct {
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  position: relative;
+  left: 30px;
+}
+
+div#wsod-dealbook div#TopMovers .posArrow {
+  height: 28px;
+  background: url(http://markets.on.nytimes.com/research/images/icons/up.gif) no-repeat 5px 0px;
+  text-align: left;
+}
+
+div#wsod-dealbook div#TopMovers .negArrow {
+  height: 28px;
+  background: url(http://markets.on.nytimes.com/research/images/icons/down.gif) no-repeat 5px 0px;
+  text-align: left;
+}
+
+/* Home */
+div#wsod-home {
+  width: 163px;
+  font-size: 11px;
+  line-height: 14px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+div#wsod-home .tradeTimea {
+  padding-top: 1px;
+}
+
+div#wsod-home .marketContainer {
+  width: 49px;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  font-size: 10px;
+}
+
+div#wsod-home .marketLabel {
+  white-space: nowrap;
+}
+
+div#wsod-home .mMarket {
+  width: 49px;
+  display: inline;
+  float: left;
+  margin: 0px 4px;
+  padding-right: 3px;
+  padding-left: 2px;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+}
+
+div#wsod-home .marketLabel a {
+  font-weight: bold;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+div#wsod-home .marketLabel a:hover {
+  text-decoration: underline;
+}
+
+div#wsod-home .marketLabel a.asia {
+  font-size: 10px;
+  font-weight: normal;
+}
+div#wsod-home .mPort,
+div#wsod-mytimes .mPort {
+  float: right;
+}
+
+div#wsod-home .alignR {
+  text-align: right;
+}
+
+div#wsod-home h4 {
+  font-family: Georgia,Times,serif;
+  margin: 0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+div#wsod-home h4 a {
+  color: #000;
+  font-size: 11px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+div#wsod-home h4 a:hover {
+  text-decoration: underline;
+}
+
+div#wsod-home .disclaimer {
+  color: #808080;
+  font-size: 9px;
+  text-align: right;
+}
+
+div#wsod-home .usHoliday {
+  clear: both;
+  font-size: 9px;
+  text-align: center;
+  color: #808080;
+  border-top: solid 1px #ccc;
+  margin-top: 5px;
+}
+
+div#wsod-home .usHoliday span {
+  font-size: 9px;
+  color: #333;
+}
+
+/* My Times */
+div#wsod-mytimes {
+  width: 311px;
+  padding-top: 6px;
+  border: solid 1px #ccc;
+  clear: both;
+  position: relative;
+  top: -1px;
+  _top: 0px;
+  font-size: 11px;
+}
+
+div#wsod-mytimes .inner {
+  min-height: 120px;
+  _height: 120px;
+}
+
+#wsodMarketsChart .tradeTimemytimes {
+  float: right;
+  text-align: right;
+  position: relative;
+  font-size: 9px;
+  color: #808080;
+  vertical-align: bottom;
+  display: inline;
+  top: 4px;
+  right: 21px;
+}
+
+div#wsod-mytimes .marketContainer,
+div#wsod-mytimes .mMarketContainer {
+  width: 90px;
+  padding: 0 6px;
+}
+
+div#wsod-mytimes .mMarketContainer {
+  border-right: solid 1px #EDEDED;
+  border-left: solid 1px #EDEDED;
+}
+
+div#wsod-mytimes .marketLabel a,
+div#wsod-mytimes .posLast,
+div#wsod-mytimes .negLast,
+div#wsod-mytimes .noLast,
+div#wsod-mytimes .closedLast {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div#wsod-mytimes .posChangePct,
+div#wsod-mytimes .negChangePct,
+div#wsod-mytimes .noChangePct,
+div#wsod-mytimes .closedChangePct {
+  float: right;
+}
+
+/* Economy */
+div#wsod-economy {
+  font-size: 11px;
+}
+
+div#wsod-economy h4 {
+  font-size: 14px;
+  font-family: arial;
+  color: #000;
+  font-weight: bold;
+  text-transform: none !important;
+}
+
+div#wsod-economy table.table {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+div#wsod-economy table.table th {
+  font-size: 10px;
+  text-align: left;
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 3px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+div#wsod-economy table.table td {
+  font-size: 11px;
+  text-align: left;
+  padding: 3px 0 5px 0;
+  font-family: arial;
+}
+
+div#wsod-economy table.table th.right {
+  text-align: right;
+}
+
+div#wsod-economy table.table td.right {
+  text-align: right;
+  font-family: arial;
+}
+
+div#wsod-economy table.table td.light {
+  color: #808080;
+  font-size: 10px;
+  padding-bottom: 5px;
+  background-color: #F0F4F5;
+}
+
+div#wsod-economy table.table td.bBot {
+  border-bottom: solid 1px #ccc;
+  padding: 0;
+  padding-bottom: 3px;
+  color: #808080;
+  font-size: 10px;
+}
+
+div#wsod-economy table.table td.bTop {
+  padding: 0;
+  padding-bottom: 5px;
+  background-color: #F0F4F5;
+  text-align: left;
+  vertical-align: middle;
+}
+
+div#wsod-economy div.btop {
+  padding-top: 5px;
+}
+
+div#wsod-economy a {
+  font-size: 11px;
+  font-family: arial;
+  color: #004276;
+}
