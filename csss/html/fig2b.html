@@ -1,0 +1,69 @@
+<!-- <link rel="stylesheet" type="text/css" href="style.css">
+
+
+ -->
+
+
+<head>
+	  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+ <style type="text/css">
+body {
+  overflow: hidden;
+    background: url(../fig2b.png);
+    background-repeat: round;
+    background-size: auto;
+}
+img {
+	position: absolute;
+  pointer-events: none;
+}
+div {
+	position: relative;
+  margin-top: 250px;
+  margin-left: 60px;
+}
+.img2 {
+	top:-7px;
+	left:800px;
+}
+</style>
+
+<div>
+	<img src = "../arrow1.png">
+	<img class = 'img2' src = "../arrow2.png">
+</div>
+
+<script type="text/javascript">
+
+var forward = function() {
+  $( ".img2" ).animate({
+    top: "10",
+  }, 500, function() {
+  $( ".img2" ).animate({
+    left: "18",
+  }, 3000, function() {
+  });
+  });
+}
+
+var backward = function() {
+  $( ".img2" ).animate({
+    left: "800",
+  }, 3000, function() {
+
+
+  $( ".img2" ).animate({
+    top: "-7",
+  }, 500, function() {
+  });
+  });
+}
+
+var funcs = [forward, backward];
+var i = 0;
+$('body').click(function(){funcs[i%2](); i++});
+
+</script>
+
