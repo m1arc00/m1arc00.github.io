@@ -78,9 +78,10 @@ img.absoluteCenter {
 
 .slidetext p {
     padding: 300px;
-    padding-top: 250px;
-    font-size: 200px;
+    padding-top: 150px;
+    font-size: 180px;
     line-height: 1;
+    word-spacing: 30px;
     text-align: center;
     font-family: 'Amatic SC', arial;
 
