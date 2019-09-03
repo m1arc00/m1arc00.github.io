@@ -1,0 +1,101 @@
+15 years ago. csss seminar 4 years ago. graphics at the new york times.  martina morris. some of you know. someone who was important to me when i was here, still is. last question.  way i remember it, it may not be. did we teach you what you need to know. room is full of people complicated thing for martina to ask me. i tried to make this joke about measure theory in the math department obviously being the guiding principle for my life. didn't land it at all. journalism education, design education has been at the times, do think stuff in it that would totally help academics, but it's all totally learnable.
+
+title
+ file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/title.html
+
+soup. 
+ file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/soup.html
+ballot design.
+ https://twitter.com/mcimaps/status/1060642052646625281/photo/1
+ https://www.nytimes.com/2018/11/09/upshot/florida-senate-race-broward-undercount.html
+ https://twitter.com/mcimaps/status/1060579696642064390 
+
+Put the similar things together.
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/proximity.html
+ cats.
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/cats1.html
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/cats2.html
+ hot dog.
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/hotdog.html
+ shan text example. 
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter1.html
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter2.html
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter3.html
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter4.html
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter5.html
+   file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/carter6.html
+
+Put the rat back in the box.
+  corum rat example
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/put-the-rat-back.html
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/rat-source.html
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/rat-box.html
+ 
+  whale. may have to start way earlier than you really want to.
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale3.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale4.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale5.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale6.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whalefull.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale9.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale10.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale11.html
+      file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/whale12.html
+
+  plane crash speed.
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/boeing.html
+
+  chetty. 
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/chetty-orig.html
+    m1arc00.github.io/fox-ladders-circles.html
+    m1arc00.github.io/surface.html
+    m1arc00.github.io/surface2.html
+    m1arc00.github.io/surface2.html
+    m1arc00.github.io/fox-ladders-children.html
+    https://www.nytimes.com/interactive/2018/03/19/upshot/race-class-white-and-black-men.html
+
+Optimise for surprise.
+file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/optimize-surprise.html
+  https://preview.redd.it/penn36ivqmn11.jpg?width=960&crop=smart&auto=webp&s=1858d2969bb5c1832205a3b04219644929feed4a
+  house results.
+    https://www.nytimes.com/interactive/2018/11/06/us/elections/results-house-elections.html
+  https://twitter.com/ElectProject/status/1120693859061776384
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/mcdonald-redo.html
+  you draw it.
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/chetty-youdrawit-orig.html
+    https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html
+ 
+Inference isn't that scary.
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/inference.html
+  fairy dust / dialect quiz.
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/pajamas-orig.html
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/pajamas-katz.html
+  nasa. design choice / inference choice.
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/nasa1.html
+    file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/nasa2.html
+  refik anadol.
+    https://twitter.com/refikanadol/status/1076048112303722496
+
+Have a point.
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/have-a-point.html
+  https://www.artsy.net/artwork/toril-johannessen-words-and-years-miracles-in-nature-and-science-1
+
+  file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/honduras.html
+  
+
+  https://www.darkhorseanalytics.com/portfolio/data-looks-better-naked-bar-charts
+  https://www.darkhorseanalytics.com/portfolio/2016/1/7/data-looks-better-naked-clear-off-the-table
+
+
+  catherine rampell example??
+
+
+CUT >>>>>
+
+  greenland is melting.
+    tk larry
+    tk 
+  antartica is flowing.
+    https://www.nytimes.com/interactive/2017/05/18/climate/antarctica-ice-melt-climate-change.html
+  jpeg.
+    http://dwtkns.com/posts/flowing-ice.html  
