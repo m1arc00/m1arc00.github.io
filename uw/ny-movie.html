@@ -1,17 +1,27 @@
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="style.css">
-
+<html>
 <style>
-	.center {
- 	 margin: auto;
-  	 width: 50%;
- 	 padding: 40px;
-	}
+  .d1 {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height:  100%;
+  }
+  
+  video {
+    max-height:  100%;
+  }
 </style>
 
+<body>
 
-<div class = "center">
-<video controls="controls" width="654" height="602" name="ny19">
-  <source src="img/ny19-233.mov">
-</video>
-</div>
+  <div class="d1">
+	<video  name="ny19" autoplay loop muted>
+  	<source src="img/ny19-233.mov">
+	</video>
+  </div>
+
+</body>
+
+</html>
+
