@@ -1,0 +1,377 @@
+<style>
+@import url(/style.css);
+path {
+  fill: none;
+  stroke: #000;
+  pointer-events: all;
+}
+.right {
+  float: right;
+  text-align: right;
+}
+#polygon svg {
+  vertical-align: middle;
+}
+.stats {
+  font-family: monospace;
+}
+#errors text {
+  font: 10px sans-serif;
+}
+#errors path, #errors line {
+  stroke: #999;
+  shape-rendering: crispEdges;
+}
+#errors rect {
+  fill: #666;
+}
+#chart {
+  margin-top: 100px;
+}
+
+</style>
+
+
+<div id="chart"></div>
+<aside id="errors"></aside>
+
+<div style="margin: 1em 0; font-style: italic; font-size: small">
+  Year:
+  <span id="polygon"></span>
+  <input id="sides" type="range" min="0" max="120" value="0">
+</div>
+
+
+
+<script src="d3.min.js"></script>
+<script src="d3.geom.nhull.js"></script>
+<script src="power.js?20140511"></script>
+<script src="treemap.js?1"></script>
+<script>
+
+
+  var format = d3.format(".4f");
+  var bigSavedPoints = [];
+  var savedEdges = [];
+
+
+
+  (function() {
+
+  function polygonCentroid(pts) {
+     var twicearea = 0,
+      x = 0, 
+      y = 0,
+      nPts = pts.length,
+      p1, 
+      p2, 
+      f;
+
+     for ( var i = 0, j = nPts-1 ; i<nPts ; j=i++ ) {
+        p1 = pts[i]; p2 = pts[j];
+        f = p1[0] * p2[1] - p2[0] * p1[1];
+        twicearea += f;          
+        x += ( p1[0] + p2[0] ) * f;
+        y += ( p1[1] + p2[1] ) * f;
+     }
+     f = twicearea * 3;
+     return { x:x/f, y:y/f };
+  }
+  
+  var ratio = window.devicePixelRatio || 1,
+      width = 500 * ratio,
+      height = 500 * ratio,
+      stop = false,
+      sides;
+
+  var treemap = d3.layout.voronoiTreemap().iterations(1),
+      commaFormat = d3.format(",f");
+
+  var categoryFill = d3.scale.category20c(),
+      errorFill = d3.scale.linear().domain([-1, 0, 1]).range(["#00f", "#fff", "#f00"]);
+
+  var color = d3.scale.threshold()
+      .domain([-10, -5, -2, 1, 3, 6, 10, 15, 40])
+      //.range(["#577185", "#819fbb", "#aec1d9", "#e8e9f4", "#f0efe3", "#ffe5be", "#f8d79c", "#efbe58", "#b57c72", "#8a5a53"]);
+      .range(["#3C2A9A", "#7756B2", "#A786CB", "#D3B9E6", "#F1F1F1", "#F2E289", "#E5BD3F", "#D99522", "#CC6A19", "#CC6A19"]);
+      //.range(["#004837", "#00906E", "#5CB79A", "#97DFC7", "#F1F1F1", "#F2E289", "#E5BD3F", "#D99522", "#CC6A19", "#CC6A19"]);
+
+      
+
+
+
+//
+// #5CB79A
+
+
+
+
+
+
+
+
+
+  var fill = function(d) { return errorFill(d.error); };
+
+  var margin = {top: 5, right: 8, bottom: 25, left: 25},
+      errorWidth = 180 - margin.right,
+      errorHeight = 100 - margin.top - margin.bottom,
+      x = d3.scale.linear().range([0, errorWidth]),
+      y = d3.scale.linear().range([errorHeight, 0]),
+      histogram = d3.layout.histogram().bins(x.ticks(50)).frequency(false);
+
+  d3.selectAll("#size, #count").on("change", change);
+  d3.select("#sides").on("input", change);
+
+  change();
+
+  function change() {
+    sides = +d3.select("#sides").property("value");
+    
+    // if (sides > 12) sides = 120;
+    // d3.select("#polygon").call(smallPolygon, sides);
+
+    treemap
+        .polygon(regularPolygon(120, width, height, 2 * ratio))
+        .value( function(d) { 
+
+              if(!d.size){
+                return 0;
+              }
+              //console.log("sigh")
+              //console.log(d)
+              return d.size[sides]; 
+
+            });
+    stop = false;
+  }
+
+  function chgvar(d){
+
+    if(!d.chg){
+      return 0;
+    }
+
+   var sides = +d3.select("#sides").property("value");
+   return +d.chg[sides];
+  }
+
+  var context = d3.select("#chart").append("canvas")
+      .attr("width", width)
+      .attr("height", height)
+      .style("width", width / ratio + "px")
+      .style("height", height / ratio + "px").node().getContext("2d");
+  context.lineCap = "round";
+  context.strokeStyle = "#000";
+
+  // var svg = d3.select("#errors").append("svg")
+  //     .attr("width", errorWidth + margin.left + margin.right)
+  //     .attr("height", errorHeight + margin.top + margin.bottom)
+  //     .style("margin-left", -margin.left + "px")
+  //   .append("g")
+  //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // svg.append("g")
+  //     .call(d3.svg.axis().scale(y).ticks(5).orient("left"));
+
+  // svg.append("g")
+  //     .attr("transform", "translate(0," + errorHeight + ")")
+  //     .call(d3.svg.axis().scale(x).ticks(5));
+
+  // svg.append("text")
+  //     .attr("dy", "-.2em")
+  //     .attr("text-anchor", "end")
+  //     .attr("transform", "translate(" + errorWidth + "," + errorHeight + ")")
+  //     .text("relative error");
+
+  d3.json("test.json", function(error, json) {
+//  d3.json("flare5.json", function(error, json) {
+    d3.timer(function() {
+      if (stop) return;
+      stop = redraw(json);
+    });
+  });
+
+  function redraw(json) {
+    json = json[0]
+    var nodes = treemap(json).sort(function(a, b) { return a.depth - b.depth; }),
+        root = nodes[0],
+        rootArea = polygonArea(root.polygon),
+        edges = {},
+        ε = 1e-6;
+
+        // console.log(nodes)
+        // console.log(root)
+
+    var errors = [];
+
+    var savedPoints = [];
+
+    context.clearRect(0, 0, width, height);
+    for (var i = 0, n = nodes.length; i < n; ++i) {
+      var d = nodes[i], polygon = d.polygon;
+      if (polygon) {
+
+        var p0 = polygon[0],
+            k0 = Math.round(p0[0] / ε) * ε + "," + Math.round(p0[1] / ε) * ε;
+        for (var j = 1, m = polygon.length; j < m; ++j, p0 = p, k0 = k) {
+          var p = polygon[j],
+              k = Math.round(p[0] / ε) * ε + "," + Math.round(p[1] / ε) * ε,
+              key = (k0 < k ? k0 + "," + k : k + "," + k0) + "," + d.depth;
+          edges[key] = !d.depth || edges.hasOwnProperty(key) ? [p0, p, d.depth] : null;
+        }
+
+        if (d.parent) {
+
+
+          var bad = Math.abs(d.error = (polygonArea(polygon) / rootArea) / (d.value / root.value) - 1)
+          if(!isFinite(bad)){
+            bad = 0;
+            d.error = 0;
+          }
+
+          errors.push(bad);
+
+
+          // if(!isFinite(d.error)){
+          //   console.log(d)
+          //   console.log((polygonArea(polygon) / rootArea))
+          //   console.log((d.value / root.value))
+          // }
+
+
+        }
+
+        if (!(d.children && d.children.length)) { // only the leaves, not the polygons
+
+          var point = polygon[0];
+          context.beginPath();
+          context.moveTo(point[0], point[1]);
+          var grr = [];
+          grr.push(point)
+
+          for (var j = 1, m = polygon.length; j < m; ++j) {
+            point = polygon[j];
+            grr.push(point)
+            context.lineTo(point[0], point[1]);
+          }
+          grr.push(polygon[0])
+          
+          context.closePath();
+          context.fillStyle =  color(chgvar(d));
+          context.fill();
+
+          var center = polygonCentroid(polygon);
+
+
+          if(d.size && d.size[0] > .5) {
+
+          context.fillStyle = "black";
+          context.font = "26px arial";
+          context.textAlign="center"; 
+         // console.log(d)
+            context.fillText(d.name, center.x, center.y);
+          }
+
+          var k = savedPoints.length;
+          savedPoints[k] = {};
+          savedPoints[k].name = d.name;
+          savedPoints[k].chg = chgvar(d);
+          savedPoints[k].polygon = grr;
+          bigSavedPoints[sides] = {points:savedPoints}
+
+
+
+        }
+      }
+    }
+
+    window.savedPoints = savedPoints;
+
+    var zz = [];
+
+    for (var k in edges) {
+      var e = edges[k];
+      if (e == null) continue;
+      var e0 = e[0], e1 = e[1];
+
+      zz.push({"e0":e0, "e1":e1, "lwd":e[2]});
+
+      context.beginPath();
+      context.moveTo(e0[0], e0[1]);
+      context.lineTo(e1[0], e1[1]);
+      context.strokeStyle = 'black';
+      context.lineWidth = Math.max(.25, 5 - Math.max(1, e[2])) * ratio;
+      context.stroke();
+
+    }
+
+    bigSavedPoints[sides].edges = zz;
+    window.bigSavedPoints = bigSavedPoints;
+
+    // var rect = svg.selectAll("rect")
+    //     .data(histogram(errors));
+    // rect.enter().append("rect");
+    // rect.attr("x", function(d) { return x(d.x) + .5; })
+    //     .attr("y", function(d) { return y(d.y); })
+    //     .attr("width", function(d) { return x(d.dx) - 1; })
+    //     .attr("height", function(d) { return errorHeight - y(d.y); });
+    // rect.exit().remove();
+
+    var done = d3.max(errors) < .05;
+//  console.log(d3.max(errors));
+
+    if(done) {
+      // console.log(JSON.stringify(savedPoints))
+    }
+
+    return done;
+  }
+
+  })();
+
+
+  function regularPolygon(n, w, h, p) {
+    w *= .5, h *= .5;
+    var theta = 2 * Math.PI / n,
+        polygon = d3.range(n).map(function(i) {
+          return [w + (w - p) * Math.sin(i * theta), h + (h - p) * -Math.cos(i * theta)];
+        });
+    polygon.push(polygon[0].slice());
+    return polygon;
+  }
+
+  function smallPolygon(g, n) {
+    var r = 10,
+        p = 1,
+        polygon = regularPolygon(n, 2 * r, 2 * r, p);
+
+    var svg = g.selectAll("svg").data([polygon]);
+    svg.enter().append("svg")
+        .attr("width", 2 * (r + p))
+        .attr("height", 2 * (r + p))
+      .append("path");
+    svg.select("path")
+        .attr("d", "M" + polygon.join("L") + "Z");
+  }
+
+  function powerLaw(x0, x1, n) {
+    ++n;
+    var x0_n = Math.pow(x0, n),
+        x1_n = Math.pow(x1, n);
+    return function() {
+      return Math.pow((x1_n - x0_n) * Math.random() + x0_n, 1 / n);
+    };
+  }
+
+  function polygonArea(polygon) {
+    var a = polygon[0],
+        area = 0;
+    for (var i = 1, n = polygon.length; i < n; ++i, a = b) {
+      var b = polygon[i];
+      area += a[0] * b[1] - a[1] * b[0];
+    }
+    return .5 * area;
+  }
+
+</script>
