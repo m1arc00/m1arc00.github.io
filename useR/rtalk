@@ -1,45 +1,103 @@
+### todo: youtube downloader?
+
+
 
 ######################################
-title slide
+title.html
 
-allthings.mp4
+file:///Users/amandac/Dropbox/old-talks/openviz/imagesequences/allthings.html
 
+cow.png
+boris.png
+sidewalk.png
+scatterplot.png
+crayon.png
+playdoh.png
+lombardi.png
 
-jokes about dalle.
-	- sidewalk
-	- scatterplot
-	- crayon
-	- playdoh
+jobs.png
 
-job description
-
-- inigo quilez video.
-- glsl stuff
-
-### old r talk of functions.
-
-
+https://www.shadertoy.com/view/3lsSzf
+inigo.png
 
 ############################################################################
 ############################################################################
-- ryashader r.
-- thomas lin peterson
-- fidenza
 
-- https://archive.nytimes.com/www.nytimes.com/interactive/2012/07/20/us/drought-footprint.html
-- frankie's lines
-	- mariano rivera
-	- bonds
-	-
-	- tell hirst story
+https://m1arc00.github.io/useR/looks_like_R.html
+https://archive.nytimes.com/www.nytimes.com/interactive/2012/07/20/us/drought-footprint.html
 
-- bolt
-	-
-	-	bolt sound videos.
+https://www.nytimes.com/interactive/2022/06/16/upshot/nba-finals-golden-state-boston-three-pointers.html
+https://www.nytimes.com/interactive/2022/02/02/upshot/tom-brady-career-stats.html
+file:///Users/amandac/Dropbox/Public/unemp.html
+kqunemp.png
+https://www.nytimes.com/2014/08/28/upshot/medicare-not-such-a-budget-buster-anymore.html
+file:///Users/amandac/Dropbox/Public/misc_talks/hirst1.html
+file:///Users/amandac/Dropbox/Public/misc_talks/artnet.html
+file:///Users/amandac/Dropbox/Public/misc_talks/sharks.html
+file:///Users/amandac/Dropbox/Public/misc_talks/detail.html
+https://archive.nytimes.com/www.nytimes.com/interactive/2013/06/12/arts/design/Damien-Hirsts-Spot-Prices.html?_r=2
 
-- needle
-	- kamala harris book
-	- kellyanne conway
+https://m1arc00.github.io/useR/doesnt_look_like_R.html
+http://archive.nytimes.com/www.nytimes.com/interactive/2012/08/05/sports/olympics/the-100-meter-dash-one-race-every-medalist-ever.html?
+https://www.youtube.com/watch?v=nZtHjPgQm2I
+https://www.youtube.com/watch?v=RWxODVM1kvs
+https://www.youtube.com/watch?v=nphM2kK0Ou0
+
+https://m1arc00.github.io/uw/live-forecast-simple.html
+https://m1arc00.github.io/zelen/pa.html
+https://m1arc00.github.io/uw/gude.html
+https://m1arc00.github.io/uw/va.html
+https://m1arc00.github.io/uw/va2.html
+fla1.png
+fla2.png
+fla3.png
+fla4.png
+fla5.png
+
+############################################################################
+############################################################################
+
+https://m1arc00.github.io/useR/movement.html
+	- file:///Users/amandac/Dropbox/Public/flyingboxes.html
+	- flying boxes.pdf is really good in old r talk.
+	- chetty
+
+https://m1arc00.github.io/useR/interaction.html
+	- t magazine slides
+	- https://m1arc00.github.io/hinton.html
+	- https://m1arc00.github.io/veltman.html
+
+https://m1arc00.github.io/useR/annotation.html
+	https://m1arc00.github.io/blockade.html
+	file:///Users/amandac/Dropbox/Public/misc_talks/aerial.html
+	file:///Users/192363/Dropbox/old-talks/columbia%20jschool/facebookanno.html
+	file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/chetty-youdrawit-orig.html
+	file:///Users/192363/Dropbox%20(NYT)/old-talks/csss/html/chetty-words.html
+	https://archive.nytimes.com/www.nytimes.com/interactive/2012/10/05/business/economy/one-report-diverging-perspectives.html
+
+https://m1arc00.github.io/useR/uncertainty.html
+	https://m1arc00.github.io/nairu.html
+	https://archive.nytimes.com/www.nytimes.com/interactive/2012/10/05/business/economy/one-report-diverging-perspectives.html
+	https://www.nytimes.com/interactive/2020/10/27/upshot/biden-trump-poll-quiz.html
+
+
+https://www.data-imaginist.com/art
+https://www.tylermw.com/datacoaster-tycoon/
+file:///Users/amandac/Dropbox/Public/pollercoaster.html
+
+file:///Users/amandac/Dropbox/old-talks/openviz/imagesequences/rfunctions.html
+
+
+
+
+
+
+
+
+
+######################################
+######################################
+
 	- don't let most people tell you you can't use R in production.
 	- npm junk. server. 
 	- doing it from a plane / less robust.
@@ -47,35 +105,10 @@ job description
 	- 
 
 
-
-############################################################################
-############################################################################
-
-- movement
-	- flying boxes: distributions are more interesting than averages.
-	- chetty
-- true interaction
-	- 
-	- t magazine slides
-- annotation
-	- ukraine
-	- show video
-	- chetty
-	- jobs report
-- a certain type of uncertainty
-	- nairu chart
-	- jobs report
-	- biden/trump quiz
-
-Thanks.
-
-
-
-
-
-
-
-
+######################################
+######################################
+- thomas lin peterson
+- 
 
 ######################################
 
