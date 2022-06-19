@@ -20,6 +20,7 @@ img {
 
 img.vertical {
     max-width: 56% !important;
+    max-height:  95% !important;
 }
 
 img.littleSmaller {
