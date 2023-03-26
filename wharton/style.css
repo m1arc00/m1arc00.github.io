@@ -56,6 +56,15 @@ img.huge {
 }
 
 
+img.huge2 {
+   
+    max-width: 100%;
+    min-height: 2%;
+}
+
+
+
+
 img.tiny {
     min-height: 20%;
 }
