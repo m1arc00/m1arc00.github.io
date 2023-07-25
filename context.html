@@ -152,8 +152,102 @@ h1 {
         <span class="ripple"></span>
     </button>
 </div>
-<!-- partial -->
-  <script  src="./script.js"></script>
+<!-- 
+<script>
+
+const SELECTOR_RIPPLE = ".ripple";
+const TAG_NAME_RIPPLE_ITEM = "span";
+const CLASS_NAME_RIPPLE_ITEM = "ripple-item";
+const DELAY_MS = 100;
+var i = 0;
+
+
+var questions = ["A time I felt on top of the world …","An important object I’ve lost …", "The last time I cheated …","A scent that makes me nostalgic …",
+"A text message I fantasize receiving …", "The thing that makes me hard to live with …", "The most sensual thing I’ve done without having sex …","The best gift I’ve ever received …","The kindest thing anyone has ever done for me …","A time I unintentionally hurt someone …","I wish I had a second chance at …","I wish I had never seen …"]
+/*
+ * Class definition
+ */
+
+class Ripple {
+    constructor(element) {
+        this._element = element;
+        this._allow = true;
+    }
+
+    init() {
+        this._addEventListener();
+    }
+
+    _spawn(event) {
+        if (!this._allow) {
+            return;
+        }
+
+        this._allow = false;
+
+        setTimeout(() => {
+            this._allow = true;
+        }, DELAY_MS);
+
+        const item = document.createElement(TAG_NAME_RIPPLE_ITEM);
+        item.classList.add(CLASS_NAME_RIPPLE_ITEM);
+
+        this._element.append(item);
+        this._setSize(item);
+        this._setPosition(item, event);
+
+        this._queueRemove(item);
+    }
+
+    _queueRemove(item) {
+        item.addEventListener("animationend", () => {
+            item.remove();
+        });
+    }
+
+    _setPosition(item, { clientX, clientY }) {
+        const rect = item.getBoundingClientRect();
+
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+
+        item.style.top = `${y}px`;
+        item.style.left = `${x}px`;
+    }
+
+    _setSize(item) {
+        const width = this._element.offsetWidth;
+        const height = this._element.offsetHeight;
+        const size = width > height ? width : height;
+        const normalizedSize = size * Math.sqrt(2);
+
+        item.style.width = `${normalizedSize}px`;
+        item.style.height = `${normalizedSize}px`;
+    }
+
+    _addEventListener() {
+        this._element.addEventListener("click", (event) => {
+            this._spawn(event);
+        i++;   
+           if(i > questions.length - 1){i = 0
+               
+           }
+document.getElementById("question").innerHTML = questions[i];
+        });
+    }
+}
+
+/*
+ * Implementation
+ */
+
+for (const el of document.querySelectorAll(SELECTOR_RIPPLE)) {
+    const instance = new Ripple(el);
+    instance.init();
+}
+</script>
+
+
 
 </body>
 </html>
