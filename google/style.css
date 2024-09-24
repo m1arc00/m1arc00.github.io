@@ -108,7 +108,6 @@ img.absoluteCenter {
     font-size: clamp(40px, 700px, 170px);
 }
 
-
 .credit, .credit a, .credit a:visited {
     text-decoration: none;
     font-family: 'Amatic SC', arial;
