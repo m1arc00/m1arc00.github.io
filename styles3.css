@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Amatic SC', arial;
+  text-align: center;
+}
+
+.image-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-5vh); /* Moves the title up slightly */
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vertical {
+  width: 50vw;
+}
+
+
+
+
+
