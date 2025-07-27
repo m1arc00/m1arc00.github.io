@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b1a33; /* Very dark blue */
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Amatic SC', arial;
+  text-align: center;
+}
+
+.title {
+  font-size: 14vw;
+  font-weight: 100;
+  line-height: 1.2;
+  max-width: 90vw;
+  word-break: break-word;
+  transform: translateY(-5vh); /* Moves the title up slightly */
+}
+
+.image-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.longer {
+  font-size: 12vw;
+}
+
