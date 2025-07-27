@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css" />
+  <title>Responsive Image</title>
   <style>
-    body{background: white}
+    .responsive-img {
+      width: 100%;
+      height: auto; /* This preserves the aspect ratio */
+      display: block; /* Removes unwanted spacing */
+    }
   </style>
 </head>
 <body>
-  <div class="image-container smaller">
-    <img src="top1pctincome.png">
-  </div>
+
+  <img src="top1pctincome.png"  class="responsive-img">
+
 </body>
 </html>
