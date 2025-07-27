@@ -26,6 +26,8 @@ body {
   justify-content: center;
 }
 
+
+
 img {
   width: 100%;
   height: auto;
@@ -36,3 +38,11 @@ img {
   font-size: 12vw;
 }
 
+
+.image-container.vertical {
+  width: 50vw;
+}
+
+.image-container.smaller {
+  width: 80vw;
+}
