@@ -39,37 +39,44 @@
     <img id="zoomable" src="top1pctincome.png" alt="Zoomable Image" />
   </div>
 
-  <script>
-    const img = document.getElementById('zoomable');
-    const container = document.getElementById('container');
+<script>
+  const img = document.getElementById('zoomable');
+  const container = document.getElementById('container');
 
-    let isZoomed = false;
-    let scale = 2; // change this for deeper zoom
+  let isZoomed = false;
+  let scale = 2; // change this for deeper zoom
 
-    img.addEventListener('click', (e) => {
-      const rect = img.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
+  img.addEventListener('click', (e) => {
+    const rect = img.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
+    const percentX = (clickX / rect.width) * 100;
+    const percentY = (clickY / rect.height) * 100;
 
-      if (!isZoomed) {
-        const clickX = e.clientX - rect.left;
-        const clickY = e.clientY - rect.top;
-
-        const percentX = (clickX / rect.width) * 100;
-        const percentY = (clickY / rect.height) * 100;
-
-        img.style.transformOrigin = `${percentX}% ${percentY}%`;
-        img.style.transform = `scale(${scale})`;
-        img.classList.add('zoomed');
-        isZoomed = true;
-      } else {
+    if (!isZoomed) {
+      // First zoom in to clicked area
+      img.style.transformOrigin = `${percentX}% ${percentY}%`;
+      img.style.transform = `scale(${scale})`;
+      img.classList.add('zoomed');
+      isZoomed = true;
+    } else {
+      if (e.shiftKey) {
+        // Zoom out
         img.style.transformOrigin = 'center center';
         img.style.transform = 'scale(1)';
         img.classList.remove('zoomed');
         isZoomed = false;
+      } else {
+        // Pan to clicked area
+        img.style.transformOrigin = `${percentX}% ${percentY}%`;
       }
-    });
+    }
+  });
 
-    img.addEventListener('dragstart', (e) => e.preventDefault());
-  </script>
+  img.addEventListener('dragstart', (e) => e.preventDefault());
+</script>
+
+
 </body>
 </html>

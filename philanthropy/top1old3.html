@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Viewer</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: white;
+    }
+
+    body.interacted {
+      overflow: auto;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    img {
+      max-width: 100vw;
+      max-height: 100vh;
+      height: auto;
+      width: auto;
+    }
+
+    body.interacted img {
+      max-width: none;
+      max-height: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="top1pctincome.png" alt="Centered Image" />
+  </div>
+
+  <script>
+    function enableFullImage() {
+      document.body.classList.add('interacted');
+      window.removeEventListener('click', enableFullImage);
+      window.removeEventListener('keydown', enableFullImage);
+      window.removeEventListener('wheel', enableFullImage);
+    }
+
+    window.addEventListener('click', enableFullImage);
+    window.addEventListener('keydown', enableFullImage);
+    window.addEventListener('wheel', enableFullImage);
+  </script>
+</body>
+</html>

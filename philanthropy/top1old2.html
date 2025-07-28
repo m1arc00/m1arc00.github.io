@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoom and Pan Image</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #image-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+    }
+
+    #zoom-image {
+      max-width: 100%;
+      max-height: 100%;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="image-container">
+    <img id="zoom-image" src="top1pctincome.png" alt="Zoomable Image" />
+  </div>
+
+  <!-- Panzoom Library -->
+  <script src="https://unpkg.com/@panzoom/panzoom@4.6.0/dist/panzoom.min.js"></script>
+
+  <script>
+    const image = document.getElementById('zoom-image');
+
+    const panzoom = Panzoom(image, {
+      maxScale: 5,
+      minScale: 1,
+    });
+
+    // Enable zooming with the mouse wheel
+    image.parentElement.addEventListener('wheel', function (event) {
+      panzoom.zoomWithWheel(event);
+    });
+
+    function zoomToTopRight(scale) {
+      const rect = image.getBoundingClientRect();
+
+      // Use the top-right corner as the zoom focal point
+      const clientX = rect.width;
+      const clientY = 0;
+
+      // Calculate the zoom factor
+      const currentScale = 1
+      const zoomFactor = scale / currentScale;
+
+      // Zoom to the top-right corner
+      panzoom.zoom(clientX, clientY, zoomFactor);
+
+      // Adjust the pan so the top-right remains visible
+      // You may need to tweak this based on your layout/container
+      panzoom.moveTo(-(rect.width * (zoomFactor - 1)), 0);
+    }
+
+    image.addEventListener('click', (event) => {
+      if (event.shiftKey) {
+        panzoom.zoomOut();
+      } else {
+        //panzoom.zoomIn();
+        zoomToTopRight(10)
+      }
+    });
+
+    // Optional: change cursor on drag
+    let isDragging = false;
+    image.addEventListener('mousedown', () => {
+      image.style.cursor = 'grabbing';
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        image.style.cursor = 'grab';
+        isDragging = false;
+      }
+    });
+  </script>
+</body>
+</html>

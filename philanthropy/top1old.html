@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoom to Click Point</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 80vw;
+      height: 80vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s ease, transform-origin 0.5s ease;
+      user-select: none;
+      cursor: zoom-in;
+    }
+
+    .zoomed {
+      transform: scale(2);
+      cursor: zoom-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="zoomable" src="your-image.jpg" alt="Zoomable Image" />
+  </div>
+
+  <script>
+    const img = document.getElementById('zoomable');
+    let isZoomed = false;
+
+    img.addEventListener('click', (e) => {
+      const rect = img.getBoundingClientRect();
+
+      // Calculate click position as a % of image size
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      if (!isZoomed) {
+        // Set transform origin to click point
+        img.style.transformOrigin = `${x}% ${y}%`;
+        img.classList.add('zoomed');
+      } else {
+        // Reset to default
+        img.classList.remove('zoomed');
+        img.style.transformOrigin = 'center center';
+      }
+
+      isZoomed = !isZoomed;
+    });
+
+    // Prevent default drag ghost
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+  </script>
+</body>
+</html>
