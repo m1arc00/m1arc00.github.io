@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #0b1a33; /* Very dark blue */
-  color: white;
+  color: white;v
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ body {
 .title {
   font-size: 14vw;
   font-weight: 100;
-  line-height: 1.2;
+  line-height: 1.1;
   max-width: 90vw;
   word-break: break-word;
   transform: translateY(-5vh); /* Moves the title up slightly */
@@ -34,6 +34,7 @@ img {
 
 .longer {
   font-size: 12vw;
+  line-height: 1.1;
 }
 
 
@@ -43,4 +44,9 @@ img {
 
 .image-container.smaller {
   width: 80vw;
+}
+
+span {
+  color: yellow;
+  font-weight: 600;
 }
