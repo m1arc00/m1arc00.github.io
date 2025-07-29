@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #0b1a33; /* Very dark blue */
-  color: white;v
+  color: white;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -24,6 +24,7 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+  transform: translateY(-2vh); /* Moves the title up slightly */
 }
 
 img {
@@ -37,7 +38,6 @@ img {
   line-height: 1.1;
 }
 
-
 .image-container.vertical {
   width: 50vw;
 }
@@ -46,7 +46,7 @@ img {
   width: 80vw;
 }
 
-span {
+.title span {
   color: yellow;
   font-weight: 600;
 }
