@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    color: #eee;
+    font: 14px/1.4 system-ui, -apple-system, sans-serif;
+    user-select: none;
+  }
+  .stage {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    position: relative;
+  }
+  .stage img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+  .nav {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 25%;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 40px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity .15s;
+  }
+  .nav:hover { opacity: .6; background: rgba(0,0,0,.25); }
+  .nav.prev { left: 0; }
+  .nav.next { right: 0; }
+  .bar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 10px;
+    background: #1a1a1a;
+    border-top: 1px solid #2a2a2a;
+  }
+  .bar button {
+    background: #2a2a2a;
+    color: #eee;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .bar button:hover { background: #343434; }
+  #counter { min-width: 70px; text-align: center; color: #999; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <button class="nav prev" aria-label="Previous">‹</button>
+    <img id="photo" alt="">
+    <button class="nav next" aria-label="Next">›</button>
+  </div>
+
+  <div class="bar">
+    <button id="prev">← Prev</button>
+    <span id="counter"></span>
+    <button id="next">Next →</button>
+  </div>
+
+<script>
+const images = [
+  "image1.png","image2.png","image3.png","image4.png",
+  "image5.png","image6.png","image7.png","image8.png","image9.png"
+];
+
+const photo = document.getElementById('photo');
+const counter = document.getElementById('counter');
+let i = 0;
+
+function show(n) {
+  i = (n + images.length) % images.length;
+  photo.src = images[i];
+  photo.alt = images[i];
+  counter.textContent = `${i + 1} / ${images.length}`;
+}
+
+const next = () => show(i + 1);
+const prev = () => show(i - 1);
+
+document.getElementById('next').onclick = next;
+document.getElementById('prev').onclick = prev;
+document.querySelector('.nav.next').onclick = next;
+document.querySelector('.nav.prev').onclick = prev;
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End') show(images.length - 1);
+});
+
+show(0);
+</script>
+</body>
+</html>
