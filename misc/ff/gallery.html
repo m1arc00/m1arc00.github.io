@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Photos</title>
 <style>
-  :root { color-scheme: dark; }
+  :root { color-scheme: light; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #111;
-    color: #eee;
+    background: #fff;
+    color: #222;
     font: 14px/1.4 system-ui, -apple-system, sans-serif;
     user-select: none;
   }
@@ -22,64 +22,38 @@
     min-height: 0;
     display: grid;
     place-items: center;
-    padding: 16px;
     position: relative;
+    overflow: hidden;
+    padding: 16px;
   }
   .stage img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    border-radius: 4px;
+    display: block;
   }
   .nav {
     position: absolute;
     top: 0; bottom: 0;
     width: 25%;
     border: 0;
+    padding: 0;
     background: transparent;
-    color: #fff;
-    font-size: 40px;
-    opacity: 0;
+    font-size: 0;
     cursor: pointer;
-    transition: opacity .15s;
+    -webkit-appearance: none;
+    appearance: none;
   }
-  .nav:hover { opacity: .6; background: rgba(0,0,0,.25); }
+  .nav:focus { outline: none; }
   .nav.prev { left: 0; }
   .nav.next { right: 0; }
-  .bar {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 10px;
-    background: #1a1a1a;
-    border-top: 1px solid #2a2a2a;
-  }
-  .bar button {
-    background: #2a2a2a;
-    color: #eee;
-    border: 1px solid #3a3a3a;
-    border-radius: 6px;
-    padding: 6px 14px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  .bar button:hover { background: #343434; }
-  #counter { min-width: 70px; text-align: center; color: #999; font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
   <div class="stage">
-    <button class="nav prev" aria-label="Previous">‹</button>
+    <button class="nav prev" aria-label="Previous"></button>
     <img id="photo" alt="">
-    <button class="nav next" aria-label="Next">›</button>
-  </div>
-
-  <div class="bar">
-    <button id="prev">← Prev</button>
-    <span id="counter"></span>
-    <button id="next">Next →</button>
+    <button class="nav next" aria-label="Next"></button>
   </div>
 
 <script>
@@ -89,21 +63,17 @@ const images = [
 ];
 
 const photo = document.getElementById('photo');
-const counter = document.getElementById('counter');
 let i = 0;
 
 function show(n) {
   i = (n + images.length) % images.length;
   photo.src = images[i];
   photo.alt = images[i];
-  counter.textContent = `${i + 1} / ${images.length}`;
 }
 
 const next = () => show(i + 1);
 const prev = () => show(i - 1);
 
-document.getElementById('next').onclick = next;
-document.getElementById('prev').onclick = prev;
 document.querySelector('.nav.next').onclick = next;
 document.querySelector('.nav.prev').onclick = prev;
 
